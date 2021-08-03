@@ -1,0 +1,33 @@
+---
+spring:
+  output:
+    ansi:
+      enabled: always
+  profiles:
+    default: dev
+  liquibase:
+    enabled: true
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  liquibase:
+    contexts: dev
+  h2:
+    console:
+      enabled: true
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  liquibase:
+    contexts: qa
+---
+spring:
+  config:
+    activate:
+      on-profile: prd
+  liquibase:
+    contexts: prd

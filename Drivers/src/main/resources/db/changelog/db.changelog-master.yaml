@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+     file: v1/20210725223442_Create_Hero_Table.sql
+     relativeToChangelogFile: true
+  - include:
+     file: v1/20210725232300_Insert_Data_Hero.sql
+     relativeToChangelogFile: true

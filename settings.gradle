@@ -1,2 +1,4 @@
 rootProject.name = 'heroes'
-include 'Entities'
+include 'Domain'
+include 'Adapters'
+include 'Drivers'
