@@ -8,10 +8,12 @@ import javax.persistence.Id;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import es.mindata.heroes.entities.Hero;
+import lombok.experimental.SuperBuilder;
 
 
 @RestResource
 @Entity(name = "hero")
+@SuperBuilder
 public class HeroModel extends Hero {
 	
 	@Id
