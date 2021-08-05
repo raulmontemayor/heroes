@@ -29,5 +29,5 @@ docker run --name hero -p 8080:8080 mindata/heroes
 ```
 
 ## Usage
-To make things easier we have added a Postman collection (Hero.postman_collection.json) with examples of what the API can do.
+Documentation is in swagger, with app running access [this](http://localhost:8080/swagger-ui/#/), in development environment use ``admin:adminadmin`` to enter. Also, we have added a Postman collection (Hero.postman_collection.json) with examples of what the API can do.
 

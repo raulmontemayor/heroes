@@ -1,6 +1,7 @@
 package es.mindata.heroes.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -32,12 +33,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService());
 
 	}
+	
+	@Value("${spring.security.user.name}")
+	private String username;
+	
+	@Value("${spring.security.user.password}")
+	private String password;
 
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
 		@SuppressWarnings("deprecation")
-		UserDetails user = User.withDefaultPasswordEncoder().username("admin").password("adminadmin").roles("USER")
+		UserDetails user = User.withDefaultPasswordEncoder().username(username).password(password).roles("USER")
 				.build();
 
 		return new InMemoryUserDetailsManager(user);
