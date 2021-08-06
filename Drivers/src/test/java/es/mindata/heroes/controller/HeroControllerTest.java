@@ -42,6 +42,20 @@ public class HeroControllerTest {
 		assertEquals("Harley Quinn", response.get(1).getFullName());
 		assertEquals("Kal-hel", response.get(2).getFullName());
 	}
+	
+	@Test
+	public void testSearchByUniverse_FilterWorksIgnoringCase() {
+		// Arrange
+		when(repository.findAll()).thenReturn(getDataForTest());
+		// Act
+		List<HeroModel> response = controller.searchByUniverse(Optional.of("marvel"));
+		// Assert
+		assertEquals(4, response.size());
+		assertEquals("Peter Parker", response.get(0).getFullName());
+		assertEquals("Tony Stark", response.get(1).getFullName());
+		assertEquals("Thor Odinson", response.get(2).getFullName());
+		assertEquals("Steve Rogers", response.get(3).getFullName());
+	}
 
 	private Iterable<HeroModel> getDataForTest() {
 		final List<HeroModel> result = new LinkedList<>();
