@@ -30,7 +30,7 @@ public class HeroController {
 		// INFO: I know this is not the best way to filter results from DB, but I'm doing this
 		// just to demonstrate streams and optional
 		return StreamSupport.stream(repository.findAll().spliterator(), false)
-				.filter(h -> h.getUniverse().equals(name.orElse("Marvel"))).collect(Collectors.toList());
+				.filter(h -> h.getUniverse().equalsIgnoreCase(name.orElse("Marvel"))).collect(Collectors.toList());
 
 	}
 
